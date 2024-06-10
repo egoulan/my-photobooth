@@ -1,0 +1,33 @@
+<!-- <app-video-stream /> -->
+
+<mat-radio-group
+  aria-label="Selectionner une option"
+  [(ngModel)]="photoQuantity"
+>
+  <mat-radio-button value="one">1 Photo</mat-radio-button>
+  <mat-radio-button value="two">2 Photos</mat-radio-button>
+</mat-radio-group>
+
+<div>
+  @if (displayCount) {
+  {{ count() }}
+  } @else {
+  <button mat-fab extended (click)="takePhoto()">
+    <mat-icon>photo_camera</mat-icon>
+    Prendre une photo
+  </button>
+  }
+</div>
+
+@if (photo1) {
+<div>
+  <h2>Your Photo:</h2>
+  <img [src]="photo1().urlData" alt="Photo" />
+</div>
+} @if (photo2) {
+<div>
+  <h2>Your Photo 2:</h2>
+  <img [src]="photo2().urlData" alt="Photo" />
+</div>
+}
+<button (click)="printPhoto()">Print Photo</button>
